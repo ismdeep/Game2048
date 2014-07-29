@@ -10,12 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-/**
- * ÔÝÊ±Ã»ÓÐbug
- * 
- * @author ismdeep
- *
- */
 public class MainActivity extends Activity {
 
 	public MainActivity() {
