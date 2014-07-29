@@ -420,12 +420,44 @@ public class GameView extends LinearLayout
 			 * { startGame(); } }).show();
 			 */
 			/**
-			 * 史前bug，死不了啦。。。
-			 * 当出现game over的情况，自动查找三个最小的数字，清空。然后就可以继续欢乐地玩耍啦。
+			 * 史前bug，死不了啦。。。 当出现game over的情况，自动查找三个最小的数字，清空。然后就可以继续欢乐地玩耍啦。
+			 * 
 			 * @author ismdeep
-			 *
+			 * 
 			 */
-			
+			for (int cover_index = 0; cover_index < 3; cover_index++)
+			{
+				int x, y;
+				x = -1;
+				y = -1;
+				for (int i = 0; i < 4; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						if (cardsMap[i][j].getNum() > 0)
+						{
+							if (x == -1 || y == -1)
+							{
+								x = i;
+								y = j;
+							} else
+							{
+								if (cardsMap[i][j].getNum() < cardsMap[x][y]
+										.getNum())
+								{
+									x = i;
+									y = j;
+								}
+							}
+						}
+					}
+				}
+				if (x != -1 && y != -1)
+				{
+					cardsMap[x][y].setNum(0);
+				}
+			}
+
 		}
 
 	}
