@@ -8,5 +8,6 @@
     <string name="bestscore">最高分：</string>
     <string name="newgame">重新开始</string>
     <string name="appinfo">ismdeep</string>
+    <string name="title_activity_test">TestActivity</string>
 
 </resources>

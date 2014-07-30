@@ -37,11 +37,39 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnNewGame"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/newgame" />
+        android:orientation="horizontal" >
+
+        <Button
+        android:id="@+id/btnSaveGame"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnNewGame"
+        android:layout_alignBottom="@+id/btnNewGame"
+        android:layout_centerHorizontal="true"
+        android:text="保存" />
+
+    <Button
+        android:id="@+id/btnLoadGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnSaveGame"
+        android:layout_alignBottom="@+id/btnSaveGame"
+        android:layout_toRightOf="@+id/btnSaveGame"
+        android:text="读取" />
+
+    <Button
+        android:id="@+id/btnNewGame"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="38dp"
+        android:layout_toLeftOf="@+id/btnSaveGame"
+        android:text="重新开始" />
+       
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/gameContainer"

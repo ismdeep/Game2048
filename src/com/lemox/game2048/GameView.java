@@ -1,11 +1,11 @@
 package com.lemox.game2048;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.AlertDialog;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -29,6 +29,7 @@ public class GameView extends LinearLayout
 		initGameView();
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	private void initGameView()
 	{
 		setOrientation(LinearLayout.VERTICAL);
@@ -88,8 +89,17 @@ public class GameView extends LinearLayout
 		Config.CARD_WIDTH = (Math.min(w, h) - 10) / Config.LINES;
 
 		addCards(Config.CARD_WIDTH, Config.CARD_WIDTH);
-
-		startGame();
+		
+		// TODO ≤‚ ‘”√µƒ
+		try
+		{
+			startLoadGame();
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//loadGame();
 	}
 
 	private void addCards(int cardWidth, int cardHeight)
@@ -133,7 +143,21 @@ public class GameView extends LinearLayout
 
 		addRandomNum();
 		addRandomNum();
+		
 	}
+	
+	public void startLoadGame() throws IOException
+	{
+
+		MainActivity aty = MainActivity.getMainActivity();
+		aty.clearScore();
+		aty.showBestScore(aty.getBestScore());
+
+		aty.loadGame();
+	}
+	
+	
+	
 
 	private void addRandomNum()
 	{
@@ -462,6 +486,6 @@ public class GameView extends LinearLayout
 
 	}
 
-	private Card[][] cardsMap = new Card[Config.LINES][Config.LINES];
+	public Card[][] cardsMap = new Card[Config.LINES][Config.LINES];
 	private List<Point> emptyPoints = new ArrayList<Point>();
 }

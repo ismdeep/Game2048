@@ -1,6 +1,7 @@
 package com.lemox.game2048;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -89,8 +90,24 @@ public class Card extends FrameLayout
 		case 2048:
 			label.setBackgroundColor(0xffedc22e);
 			break;
+		case 4096:
+			label.setBackgroundColor(0xffa6ddff);
+			break;
+		case 8192:
+			label.setBackgroundColor(0xffa6dddd);
+			break;
+		case 16384:
+			label.setBackgroundColor(0xffa6ddc7);
+			break;
+		case 32768:
+			label.setBackgroundColor(0xffa6dd9a);
+			break;
+		case 65536:
+			label.setBackgroundColor(0xffa6dd6b);
+			break;
 		default:
-			label.setBackgroundColor(0xff3c3a32);
+			label.setBackgroundColor(Color.RED);
+			// label.setBackgroundColor(0xff3c3a32);
 			break;
 		}
 	}
