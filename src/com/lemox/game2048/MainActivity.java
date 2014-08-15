@@ -218,3 +218,4 @@ public class MainActivity extends Activity
 	public static final String SP_KEY_BEST_SCORE = "bestScore";
 
 }
+
